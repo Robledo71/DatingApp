@@ -18,16 +18,16 @@ public class BuggyControllerTests
     {
         _client = TestHelper.Instance.Client;
     }
-    [Theory]
-    [InlineData("OK", "arenita", "123456")]
-    public async Task GetSecretShouldOK(string statusCode, string username, string password)
+    [Fact]
+    public async Task GetSecretShouldOK()
     {
         // Arrange
+        var expectedStatusCode = "OK";
         requestUrl = "api/account/login";
         var loginRequest = new LoginRequest
         {
-            Username = username,
-            Password = password
+            Username = "arenita",
+            Password = "123456"
         };
         loginObject = GetLoginObject(loginRequest);
         httpContent = GetHttpContent(loginObject);
@@ -90,6 +90,6 @@ public class BuggyControllerTests
     }
     private static StringContent GetHttpContent(string objectToCode) =>
         new(objectToCode, Encoding.UTF8, "application/json");
-        
+
     #endregion
 }
