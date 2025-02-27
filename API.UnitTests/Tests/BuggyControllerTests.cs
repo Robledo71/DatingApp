@@ -23,6 +23,7 @@ public class BuggyControllerTests
     {
         // Arrange
         var expectedStatusCode = "OK";
+        var statusCode = HttpStatusCode.OK;
         requestUrl = "api/account/login";
         var loginRequest = new LoginRequest
         {
@@ -39,8 +40,8 @@ public class BuggyControllerTests
         // Act
         httpResponse = await _client.GetAsync(requestUrl);
         // Assert
-        Assert.Equal(Enum.Parse<HttpStatusCode>(statusCode, true), httpResponse.StatusCode);
-        Assert.Equal(statusCode, httpResponse.StatusCode.ToString());
+        Assert.Equal(statusCode, httpResponse.StatusCode);
+        Assert.Equal(statusCode.ToString(), httpResponse.StatusCode.ToString());
     }
     [Theory]
     [InlineData("NotFound")]
