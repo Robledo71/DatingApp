@@ -70,7 +70,7 @@ public class MessagesController
         return Ok(await messageRepository.GetThreadAsync(currentUsername, username));
     }
 
-    [HttpDelete("{id:int}")]
+     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteMessage(int id)
     {
         var username = User.GetUserName();
@@ -81,7 +81,7 @@ public class MessagesController
             return BadRequest("Can't delete the message");
         }
 
-        if (message.SenderUsername != username && message.RecipientUsername != username)
+        if (message.SenderUsername != username || message.RecipientUsername != username)
         {
             return Forbid();
         }
@@ -108,4 +108,5 @@ public class MessagesController
 
         return BadRequest("There was an issue");
     }
+}
 }
