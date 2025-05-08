@@ -15,7 +15,7 @@ export class MemberMessagesComponent {
   @ViewChild("messageForm") messageForm?: NgForm;
   private messagesService = inject(MessagesService);
   username = input.required<string>();
-  messages = input.required<Message[]>();
+  messages = input.required<Message[]>(); 
   messageContent = "";
   updateMessages = output<Message>();
 
