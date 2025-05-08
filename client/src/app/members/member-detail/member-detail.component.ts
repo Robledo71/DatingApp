@@ -30,24 +30,11 @@ export class MemberDetailComponent implements OnInit{
   ngOnInit(): void {
     // this.loadMember();
 
-    this.route.data.subscribe({
-      next: data => {
-        this.member = data["member"];
-        this.member && this.member.photos.map((photo) => {
-          this.images.push(new ImageItem({src: photo.url, thumb: photo.url}));
-        });
-      }
-    }); 
-
     this.route.queryParams.subscribe({
       next: params => {
         params['tab'] && this.selectTab(params['tab'])
       }
     });
-  }
-
-  onUpdateMessages(event: Message) {
-    this.messages.push(event);
   }
 
   selectTab(heading: string) {
