@@ -18,7 +18,7 @@ export class MessagesComponent implements OnInit {
   messagesService = inject(MessagesService);
   container = "Inbox";
   pageNumber = 1;
-  pageSize = 5;
+  pageSize = 5; 
   isOutbox = this.container === "Outbox"; 
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class MessagesComponent implements OnInit {
   }
 
   loadMessages() {
-    this.messagesService.getMessages(this.pageNumber, this.pageSize, this.container.toLocaleLowerCase());
+    this.messagesService.getMessages(this.pageNumber, this.pageSize, this.container.toLocaleLowerCase()); 
   }
 
   deleteMessage(id: number) {
@@ -44,7 +44,7 @@ export class MessagesComponent implements OnInit {
   }
 
   getRoute(message: Message) {
-    if (this.isOutbox) {
+    if (this.isOutbox) { 
       return `/members/${message.recipientUsername}`;
     }
     else {
