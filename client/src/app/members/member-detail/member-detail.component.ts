@@ -18,11 +18,11 @@ import { MessagesService } from '../../_services/messages.service';
   styleUrl: './member-detail.component.css'
 })
 export class MemberDetailComponent implements OnInit{
-  @ViewChild("memberTabs", { static: true }) memberTabs?: TabsetComponent;
+  @ViewChild("memberTabs", { static: true }) memberTabs?: TabsetComponent; 
   private memberService = inject(MembersService);
   private messagesService = inject(MessagesService);
   private route = inject(ActivatedRoute);
-  member: Member = {} as Member;
+  member: Member = {} as Member; 
   images: GalleryItem[] = [];
   activeTab?: TabDirective;
   messages: Message[] = [];
@@ -37,7 +37,7 @@ export class MemberDetailComponent implements OnInit{
           this.images.push(new ImageItem({src: photo.url, thumb: photo.url}));
         });
       }
-    });
+    }); 
 
     this.route.queryParams.subscribe({
       next: params => {
@@ -65,3 +65,5 @@ export class MemberDetailComponent implements OnInit{
       });
     }
   }
+
+   
