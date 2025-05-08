@@ -56,8 +56,13 @@
                     </gallery>
                     }
                 </tab>
-                <tab heading="Mensajes">
-                    <p>!Los mensajes van'ir aquí!</p>
+                <tab heading="Mensajes" (selectTab)="onTabActivated($event)">
+                    <app-member-messages
+                        [username]="member.userName"
+                        [messages]="messages">
+                        [messages]="messages"
+                        (updateMessages)="onUpdateMessages($event)">
+                    </app-member-messages>
                 </tab>
             </tabset>
         </div>
