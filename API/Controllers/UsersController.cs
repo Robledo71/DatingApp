@@ -33,11 +33,11 @@ public class UsersController : BaseApiController
     [HttpGet]
     public async Task<ActionResult<IEnumerable<MemberResponse>>> GetAllAsync([FromQuery] UserParams userParams)
     {
-        var members = await _repository.GetMembersAsync();
+        userParams.CurrentUsername = User.GetUserName();
         var members = await _repository.GetMembersAsync(userParams);
 
         Response.AddPaginationHeader(members);
-        
+
         return Ok(members);
     }
 
