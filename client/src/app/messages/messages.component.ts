@@ -16,7 +16,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 })
 export class MessagesComponent implements OnInit {
   messagesService = inject(MessagesService);
-  container = "Inbox";
+  container = "Inbox"; 
   pageNumber = 1;
   pageSize = 5; 
   isOutbox = this.container === "Outbox"; 
@@ -45,7 +45,7 @@ export class MessagesComponent implements OnInit {
 
   getRoute(message: Message) {
     if (this.isOutbox) { 
-      return `/members/${message.recipientUsername}`;
+      return `/members/${message.recipientUsername}`; 
     }
     else {
       return `/members/${message.senderUsername}`;

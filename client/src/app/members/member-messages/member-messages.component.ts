@@ -4,7 +4,7 @@ import { Message } from '../../_models/message';
 import { TimeagoModule } from 'ngx-timeago'; 
 import { FormsModule, NgForm } from '@angular/forms';
 
-@Component({
+@Component({ 
   selector: 'app-member-messages',
   standalone: true,
   imports: [TimeagoModule, FormsModule], 

@@ -6,14 +6,14 @@ import { TabDirective, TabsetComponent, TabsModule } from 'ngx-bootstrap/tabs';
 import { GalleryItem, GalleryModule, ImageItem } from 'ng-gallery';
 import { TimeagoModule } from 'ngx-timeago';
 import { DatePipe } from '@angular/common';
-import { MemberMessagesComponent } from "../member-messages/member-messages.component";
+import { MemberMessagesComponent } from "../member-messages/member-messages.component"; 
 import { Message } from '../../_models/message';
 import { MessagesService } from '../../_services/messages.service'; 
 
 @Component({
   selector: 'app-member-detail',
   standalone: true,
-  imports: [TabsModule, GalleryModule, TimeagoModule, DatePipe, MemberMessagesComponent],
+  imports: [TabsModule, GalleryModule, TimeagoModule, DatePipe, MemberMessagesComponent], 
   templateUrl: './member-detail.component.html',
   styleUrl: './member-detail.component.css'
 })
@@ -28,7 +28,7 @@ export class MemberDetailComponent implements OnInit{
   messages: Message[] = []; 
 
   ngOnInit(): void {
-    // this.loadMember();
+    // this.loadMember(); 
 
     this.route.queryParams.subscribe({
       next: params => {
