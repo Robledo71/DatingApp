@@ -7,14 +7,14 @@ using API.Helpers;
 public interface IMessageRepository
 {
     public void Add(Message message);
-    public void Remove(Message message);
+    public void AddGroup(MessageGroup group);
     public Task<Message?> GetAsync(int id);
-    public Task<PagedList<MessageResponse>> GetForUserAsync(MessageParams messageParams);
-    public Task<IEnumerable<MessageResponse>> GetThreadAsync(string currentUsername, string recipientUsername);
-    public Task<bool> SaveAllAsync();
-    public void AddGroup(MessageGroup group);Add commentMore actions
-    public void RemoveConnection(Connection connection);
     public Task<Connection?> GetConnectionAsync(string connectionId);
+    public Task<PagedList<MessageResponse>> GetForUserAsync(MessageParams messageParams);
     public Task<MessageGroup?> GetMessageGroupAsync(string groupName);
+    public Task<IEnumerable<MessageResponse>> GetThreadAsync(string currentUsername, string recipientUsername);
+    public void Remove(Message message);
+    public void RemoveConnection(Connection connection);
+    public Task<bool> SaveAllAsync();
 
 }
